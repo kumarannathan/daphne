@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "daphne",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/kumarannathan/Desktop/daphne", "run", "dev"],
+      "port": 3000
+    }
+  ]
+}

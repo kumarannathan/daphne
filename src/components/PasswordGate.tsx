@@ -30,13 +30,14 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
   }
 
   return (
-    <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--peach)", padding: 24 }}>
-      <form onSubmit={handleLogin} className="card" style={{ padding: 40, maxWidth: 400, width: "100%", textAlign: "center" }}>
+    <div style={{ minHeight: "100dvh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--peach)", padding: 24 }}>
+      <form onSubmit={handleLogin} className="card" style={{ padding: "40px 32px", maxWidth: 400, width: "100%", textAlign: "center" }}>
+        <div className="heartbeat" style={{ fontSize: "2.6rem", color: "var(--coral)", marginBottom: 8 }}>♥</div>
         <h2 style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "2rem", color: "var(--text)", marginBottom: 8 }}>
-          Welcome
+          Daphne&apos;s Little Portfolio
         </h2>
-        <p style={{ fontFamily: "'Nunito', sans-serif", color: "var(--text-muted)", marginBottom: 24 }}>
-          Please enter the password to view the portfolio.
+        <p style={{ fontFamily: "'Quicksand', sans-serif", color: "var(--text-soft)", marginBottom: 24 }}>
+          A keepsake for family — pop in the password to come on in. 💛
         </p>
         <input
           type="password"
@@ -48,7 +49,7 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
             padding: "12px 16px",
             borderRadius: 12,
             border: `2px solid ${error ? "var(--coral-dark)" : "var(--border)"}`,
-            fontFamily: "'Nunito', sans-serif",
+            fontFamily: "'Quicksand', sans-serif",
             fontSize: "1rem",
             outline: "none",
             marginBottom: 16,

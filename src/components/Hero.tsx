@@ -13,7 +13,7 @@ interface HeroProps {
 function StatBox({ label, value, sub, color }: { label: string; value: React.ReactNode; sub?: string; color?: string }) {
   return (
     <div className="stat-box pop-in">
-      <div style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)", marginBottom: 4 }}>
+      <div style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)", marginBottom: 4 }}>
         {label}
       </div>
       <div style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "1.4rem", fontWeight: 600, color: color ?? "var(--text)", lineHeight: 1.1 }}>
@@ -46,7 +46,7 @@ export default function Hero({ totalInvested, currentValue, totalReturn, totalRe
           fontWeight: 700,
           color: "var(--text)",
           lineHeight: 1.05,
-          marginBottom: 12,
+          marginBottom: 28,
           letterSpacing: "-0.01em",
         }}>
           Daphne&apos;s<br />

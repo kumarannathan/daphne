@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
 import { Holding } from "@/config/holdings";
 import { StockPrice } from "@/lib/stockApi";
 
@@ -11,7 +9,6 @@ interface HoldingCardProps {
 }
 
 export default function HoldingCard({ holding, price }: HoldingCardProps) {
-  const [imgError, setImgError] = useState(false);
   const currentValue = holding.shares * price.price;
   const gain = currentValue - holding.amountInvested;
   const gainPct = (gain / holding.amountInvested) * 100;
@@ -21,34 +18,21 @@ export default function HoldingCard({ holding, price }: HoldingCardProps) {
     <div className="card pop-in" style={{ padding: "24px" }}>
       {/* Header row */}
       <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 16 }}>
-        {/* Logo */}
-        <div style={{
+        {/* Mascot */}
+        <div className="mascot" style={{
           width: 52,
           height: 52,
           borderRadius: 16,
           background: "var(--peach)",
           border: "2px solid var(--border)",
-          overflow: "hidden",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
-          position: "relative",
+          fontSize: "1.7rem",
+          lineHeight: 1,
         }}>
-          {!imgError ? (
-            <Image
-              src={holding.logoUrl}
-              alt={holding.name}
-              fill
-              style={{ objectFit: "contain", padding: 6 }}
-              onError={() => setImgError(true)}
-              unoptimized
-            />
-          ) : (
-            <span style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: holding.accentColor }}>
-              {holding.ticker.charAt(0)}
-            </span>
-          )}
+          <span role="img" aria-label={holding.name}>{holding.mascot}</span>
         </div>
 
         {/* Name + ticker */}
@@ -79,7 +63,7 @@ export default function HoldingCard({ holding, price }: HoldingCardProps) {
       </div>
 
       {/* Description */}
-      <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: 16, lineHeight: 1.5 }}>
+      <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: 16, lineHeight: 1.5 }}>
         {holding.description}
       </p>
 
@@ -93,7 +77,7 @@ export default function HoldingCard({ holding, price }: HoldingCardProps) {
           { label: "Value", value: `$${currentValue.toFixed(2)}` },
         ].map(({ label, value }) => (
           <div key={label} style={{ textAlign: "center", padding: "10px 6px", background: "var(--peach)", borderRadius: 12, border: "1.5px solid var(--border)" }}>
-            <div style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-muted)", marginBottom: 2 }}>
+            <div style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-muted)", marginBottom: 2 }}>
               {label}
             </div>
             <div style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "0.95rem", fontWeight: 600, color: "var(--text)" }}>

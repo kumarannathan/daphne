@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  // Netlify sets URL at build/runtime; needed so the OG image resolves to an absolute link.
+  metadataBase: new URL(process.env.URL ?? "http://localhost:3000"),
   title: "Daphne's Portfolio ✨",
   description: "A gift from Karthik & Kumi — Daphne's first birthday investment portfolio.",
   openGraph: {

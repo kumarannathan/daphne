@@ -5,7 +5,7 @@ export interface Holding {
   costBasis: number; // per share at time of purchase
   amountInvested: number; // dollar amount invested
   description: string;
-  logoUrl: string;
+  mascot: string; // cute emoji mascot shown instead of a corporate logo
   accentColor: string;
 }
 
@@ -25,8 +25,8 @@ export const HOLDINGS: Holding[] = [
     shares: parseFloat((50 / 280.0).toFixed(6)),  // $50 ÷ ~$280
     costBasis: 280.0,
     amountInvested: 50,
-    description: "Broad US market index fund",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Vanguard_Group_logo.svg/1024px-Vanguard_Group_logo.svg.png",
+    description: "A little piece of the whole world's market",
+    mascot: "🌍",
     accentColor: "#F4846A",
   },
   {
@@ -36,7 +36,7 @@ export const HOLDINGS: Holding[] = [
     costBasis: 62.0,
     amountInvested: 10,
     description: "Cosmetics and beauty products",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/E.l.f._Cosmetics_logo.svg/1024px-E.l.f._Cosmetics_logo.svg.png",
+    mascot: "💄",
     accentColor: "#C9A0DC",
   },
   {
@@ -46,7 +46,7 @@ export const HOLDINGS: Holding[] = [
     costBasis: 700.0,
     amountInvested: 10,
     description: "Beverage bottling and distribution",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1024px-Coca-Cola_logo.svg.png",
+    mascot: "🥤",
     accentColor: "#F4846A",
   },
   {
@@ -55,8 +55,8 @@ export const HOLDINGS: Holding[] = [
     shares: parseFloat((10 / 95.0).toFixed(6)),   // $10 ÷ ~$95
     costBasis: 95.0,
     amountInvested: 10,
-    description: "Global entertainment and media",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Disney_wordmark.svg/1024px-Disney_wordmark.svg.png",
+    description: "Where the magic and the movies live",
+    mascot: "🏰",
     accentColor: "#7EB8F7",
   },
 ];

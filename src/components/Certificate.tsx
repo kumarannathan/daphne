@@ -16,7 +16,7 @@ function CuteSeal() {
       <text x="49" y="56" textAnchor="middle" fontSize="8" fontFamily="'Fredoka', sans-serif" fill="var(--coral)" fontWeight="600">
         INVESTOR
       </text>
-      <text x="49" y="65" textAnchor="middle" fontSize="7" fontFamily="'Nunito', sans-serif" fill="var(--text-muted)" fontWeight="600">
+      <text x="49" y="65" textAnchor="middle" fontSize="7" fontFamily="'Quicksand', sans-serif" fill="var(--text-muted)" fontWeight="600">
         2026
       </text>
     </svg>
@@ -60,11 +60,11 @@ export default function Certificate() {
 
           <div style={{ margin: "24px auto", width: 80, height: 4, background: "var(--coral-light)", borderRadius: 4 }} />
 
-          <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1.1rem", color: "var(--text-muted)", marginBottom: 12 }}>
+          <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "1.1rem", color: "var(--text-muted)", marginBottom: 12 }}>
             This certificate is proudly presented to
           </p>
 
-          <h3 style={{ fontFamily: "'Caveat', cursive", fontSize: "clamp(3rem, 8vw, 5.5rem)", color: "var(--coral)", lineHeight: 1, marginBottom: 32, transform: "rotate(-2deg)" }}>
+          <h3 style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "clamp(3rem, 8vw, 5.5rem)", color: "var(--coral)", lineHeight: 1, marginBottom: 32, transform: "rotate(-2deg)" }}>
             Daphne
           </h3>
 
@@ -73,17 +73,17 @@ export default function Certificate() {
             <CuteSeal />
           </div>
 
-          <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "1rem", color: "var(--text-soft)", marginBottom: 4 }}>
+          <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "1rem", color: "var(--text-soft)", marginBottom: 4 }}>
             In recognition of her extraordinary investment acumen
           </p>
-          <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.95rem", color: "var(--text-muted)", fontStyle: "italic", marginBottom: 32 }}>
+          <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.95rem", color: "var(--text-muted)", fontStyle: "italic", marginBottom: 32 }}>
             on this day, June 12, 2026
           </p>
 
           {/* Signatures */}
           <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", marginTop: 40, padding: "0 20px" }}>
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontFamily: "'Caveat', cursive", fontSize: "2rem", color: "var(--text)", marginBottom: 4 }}>
+              <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "2rem", color: "var(--text)", marginBottom: 4 }}>
                 Karthik
               </p>
               <div style={{ height: 3, width: 120, background: "var(--border)", borderRadius: 2, marginBottom: 4 }} />
@@ -93,7 +93,7 @@ export default function Certificate() {
             <div style={{ fontSize: 24, paddingBottom: 24 }} className="wiggle">🌸</div>
 
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontFamily: "'Caveat', cursive", fontSize: "2rem", color: "var(--text)", marginBottom: 4 }}>
+              <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "2rem", color: "var(--text)", marginBottom: 4 }}>
                 Kumi
               </p>
               <div style={{ height: 3, width: 120, background: "var(--border)", borderRadius: 2, marginBottom: 4 }} />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
@@ -28,7 +28,7 @@
 body {
   background-color: var(--peach);
   color: var(--text);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -60,6 +60,7 @@ body {
 
 .float      { animation: float 3s ease-in-out infinite; }
 .wiggle     { animation: wiggle 2s ease-in-out infinite; }
+.card:hover .mascot { animation: wiggle 0.7s ease-in-out infinite; }
 .pop-in     { animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 .spin-slow  { animation: spin-slow 16s linear infinite; }
 .pulse-dot  { animation: pulse-dot 2s ease-in-out infinite; }
@@ -208,7 +209,281 @@ body {
   box-shadow: 3px 3px 0px var(--border);
 }
 
+/* ── Heartbeat (footer love) ── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.25); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.18); }
+  60%      { transform: scale(1); }
+}
+.heartbeat { animation: heartbeat 1.6s ease-in-out infinite; display: inline-block; }
+
+/* ── Notes: form ── */
+.note-form {
+  background: white;
+  border: 2.5px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 4px 4px 0px var(--coral-light);
+  padding: 24px;
+}
+.note-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.note-input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.97rem;
+  outline: none;
+  background: var(--cream);
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.note-input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px var(--coral-light);
+}
+.note-textarea {
+  resize: vertical;
+  min-height: 84px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+.note-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* ── Notes: board (masonry-ish) ── */
+.notes-board {
+  column-count: 2;
+  column-gap: 22px;
+}
+.notes-board > * {
+  break-inside: avoid;
+  margin-bottom: 22px;
+}
+
+/* ── Notes: sticky note card ── */
+.sticky-note {
+  position: relative;
+  border-radius: 14px;
+  padding: 26px 22px 18px;
+  border: 1.5px solid rgba(0,0,0,0.04);
+  box-shadow: 2px 5px 14px rgba(180,120,110,0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sticky-note:hover {
+  transform: rotate(0deg) translateY(-3px) !important;
+  box-shadow: 3px 9px 20px rgba(180,120,110,0.26);
+  z-index: 2;
+}
+.washi-tape {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 78px;
+  height: 22px;
+  border-radius: 3px;
+  opacity: 0.78;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.note-text {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--text);
+  margin-bottom: 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1.5px dashed var(--note-line, var(--border));
+}
+.note-author {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--coral-dark);
+}
+.note-date {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.note-lock-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.note-lock-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.note-lock-pill {
+  background: rgba(255,255,255,0.85);
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 2px solid var(--lavender-mid);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* ── Link-style button ── */
+.link-btn {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--coral-dark);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 2px 2px 0px var(--coral-light);
+}
+.link-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px var(--coral-light); }
+
+/* ── Heart burst (on save) ── */
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(0.6); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translateY(-360px) scale(1.1); opacity: 0; }
+}
+.heart-burst {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+.burst-heart {
+  position: absolute;
+  bottom: 40px;
+  animation: floatUp 1.6s ease-out forwards;
+}
+
+/* ── Growth diary ── */
+.diary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+.diary-cell {
+  text-align: center;
+  padding: 16px 10px;
+  border-radius: 16px;
+  border: 2px dashed var(--border);
+  background: transparent;
+}
+.diary-cell-filled {
+  border: 2px solid var(--border);
+  background: white;
+  box-shadow: 3px 3px 0px var(--coral-light);
+}
+.diary-age {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.diary-value {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.diary-value-empty { color: var(--text-muted); }
+.diary-year {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ── Voice notes ── */
+.voice-card {
+  background: white;
+  border: 2.5px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 4px 4px 0px var(--coral-light);
+  padding: 18px 20px;
+}
+.record-btn {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 3px solid var(--coral-dark);
+  background: var(--coral);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0px var(--coral-dark);
+  transition: transform 0.15s ease;
+}
+.record-btn:hover { transform: scale(1.05); }
+.record-btn-recording {
+  background: #E05A5A;
+  border-color: #C04545;
+  box-shadow: 0 0 0 0 rgba(224,90,90,0.5);
+  animation: rec-pulse 1.4s ease-out infinite;
+}
+@keyframes rec-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(224,90,90,0.45); }
+  100% { box-shadow: 0 0 0 22px rgba(224,90,90,0); }
+}
+.voice-audio { width: 100%; height: 40px; }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .notes-board { column-count: 1; }
+  .note-form-row { grid-template-columns: 1fr; }
+  .card { box-shadow: 3px 3px 0px var(--coral-light); }
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .float, .wiggle, .spin-slow, .pulse-dot, .heartbeat, .burst-heart, .pop-in {
+    animation: none !important;
+  }
+}
+
 /* ── Print ── */
 @media print {
   .no-print { display: none !important; }
+  .sticky-note { box-shadow: none; border: 1.5px solid var(--border); break-inside: avoid; }
 }

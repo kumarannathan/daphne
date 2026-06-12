@@ -37,7 +37,7 @@ function CustomTooltip({ active, payload, label }: TooltipProps) {
   if (!active || !payload?.length) return null;
   return (
     <div style={{ background: "white", border: "2px solid var(--border)", borderRadius: 14, padding: "10px 16px", boxShadow: "3px 3px 0px var(--coral-light)" }}>
-      <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: 2 }}>{label}</p>
+      <p style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: 2 }}>{label}</p>
       <p style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "1.15rem", fontWeight: 600, color: "var(--coral)" }}>
         ${payload[0].value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
       </p>
@@ -62,7 +62,7 @@ export default function GrowthChart({ startValue }: { startValue: number }) {
           <h2 style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>
             Watching Daphne&apos;s Future Grow 📈
           </h2>
-          <p style={{ fontFamily: "'Nunito', sans-serif", color: "var(--text-muted)", fontSize: "0.9rem" }}>
+          <p style={{ fontFamily: "'Quicksand', sans-serif", color: "var(--text-muted)", fontSize: "0.9rem" }}>
             Projected at 10% annual return · illustrative only
           </p>
         </div>
@@ -117,8 +117,8 @@ export default function GrowthChart({ startValue }: { startValue: number }) {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="4 4" stroke="var(--border)" strokeOpacity={0.5} />
-                <XAxis dataKey="date" tick={{ fontSize: 11, fill: "var(--text-muted)", fontFamily: "'Nunito', sans-serif" }} tickLine={false} axisLine={false} interval={range === "1M" ? 4 : 49} />
-                <YAxis tick={{ fontSize: 11, fill: "var(--text-muted)", fontFamily: "'Nunito', sans-serif" }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v.toFixed(2)}`} width={70} />
+                <XAxis dataKey="date" tick={{ fontSize: 11, fill: "var(--text-muted)", fontFamily: "'Quicksand', sans-serif" }} tickLine={false} axisLine={false} interval={range === "1M" ? 4 : 49} />
+                <YAxis tick={{ fontSize: 11, fill: "var(--text-muted)", fontFamily: "'Quicksand', sans-serif" }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v.toFixed(2)}`} width={70} />
                 <Tooltip content={<CustomTooltip />} />
                 <ReferenceLine y={first} stroke="var(--coral-light)" strokeDasharray="4 4" strokeWidth={1.5} />
                 <Area type="monotoneX" dataKey="value" stroke="var(--coral)" strokeWidth={2.5} fill="url(#coralGrad)" dot={false} activeDot={{ r: 5, fill: "var(--coral)", stroke: "white", strokeWidth: 2.5 }} />

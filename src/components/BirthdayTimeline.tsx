@@ -31,7 +31,7 @@ export default function BirthdayTimeline({ currentValue }: { currentValue: numbe
           <h2 style={{ fontFamily: "'Fredoka', sans-serif", fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>
             Birthday Milestones 🎈
           </h2>
-          <p style={{ fontFamily: "'Nunito', sans-serif", color: "var(--text-muted)", fontSize: "0.9rem" }}>
+          <p style={{ fontFamily: "'Quicksand', sans-serif", color: "var(--text-muted)", fontSize: "0.9rem" }}>
             Projected at 8% annual return
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function BirthdayTimeline({ currentValue }: { currentValue: numbe
                   </div>
 
                   {/* Description */}
-                  <div style={{ fontFamily: "'Nunito', sans-serif", fontSize: "0.75rem", color: "var(--text-muted)", lineHeight: 1.3, marginBottom: 12, minHeight: 32 }}>
+                  <div style={{ fontFamily: "'Quicksand', sans-serif", fontSize: "0.75rem", color: "var(--text-muted)", lineHeight: 1.3, marginBottom: 12, minHeight: 32 }}>
                     {m.description}
                   </div>
 
