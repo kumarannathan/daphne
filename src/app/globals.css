@@ -1,26 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
+/* ── Design Tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --peach: #FFF0EB;
+  --peach-mid: #FDDDD4;
+  --coral: #F4846A;
+  --coral-light: #F9C5BC;
+  --coral-dark: #E06D54;
+  --lavender: #DDD0F0;
+  --lavender-mid: #C5B3E0;
+  --sky: #C5DFF5;
+  --mint: #C8EDD8;
+  --cream: #FFFAF7;
+  --sand: #F5E6D8;
+  --text: #3D2C2C;
+  --text-soft: #7A5C5C;
+  --text-muted: #B08080;
+  --border: #F0C4B8;
+  --border-dark: #E8A898;
+  --white: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--peach);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50%       { transform: rotate(2deg); }
+}
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.85) translateY(12px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244,132,106,0.4); }
+  50%       { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(244,132,106,0); }
+}
+
+.float      { animation: float 3s ease-in-out infinite; }
+.wiggle     { animation: wiggle 2s ease-in-out infinite; }
+.pop-in     { animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.spin-slow  { animation: spin-slow 16s linear infinite; }
+.pulse-dot  { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ── Card base ── */
+.card {
+  background: var(--white);
+  border: 2.5px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 4px 4px 0px var(--coral-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--coral-light);
+}
+
+/* ── Outlined badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 2px solid currentColor;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── Section label ── */
+.section-label {
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 8px;
+}
+
+/* ── Dotted divider ── */
+.dot-divider {
+  border: none;
+  border-top: 2.5px dashed var(--coral-light);
+  width: 100%;
+  margin: 0;
+}
+
+/* ── Button ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--coral);
+  color: white;
+  border: 2.5px solid var(--coral-dark);
+  border-radius: 100px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--coral-dark);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-primary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--coral-dark);
+}
+.btn-primary:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--coral-dark);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: white;
+  color: var(--coral);
+  border: 2.5px solid var(--coral);
+  border-radius: 100px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--coral-light);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-outline:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--coral-light);
+}
+
+/* ── Note card ── */
+.note-card {
+  background: #FFFAF7;
+  border: 2px solid var(--sand);
+  border-radius: 16px;
+  box-shadow: 3px 3px 0px var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    transparent, transparent 29px,
+    #F0E0D0 29px, #F0E0D0 30px
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── Chart wrapper ── */
+.chart-wrapper {
+  width: 100%;
+  min-width: 0;
+  height: 300px;
+}
+
+/* ── Timeline connector ── */
+.timeline-line {
+  flex: 1;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--coral-light) 0px,
+    var(--coral-light) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}
+
+/* ── Stat box ── */
+.stat-box {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 3px 3px 0px var(--border);
+}
+
+/* ── Print ── */
+@media print {
+  .no-print { display: none !important; }
 }
